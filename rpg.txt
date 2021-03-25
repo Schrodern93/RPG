@@ -7,7 +7,7 @@ lag klassen Consumeable som arver fra klassen Item som har metoden
 
  boost(StatModifier booststat, int howMuch)
 
-det er da meningen i program å kunne spise et eple som gir +5hp hvis player ikke har full hp.
+det er da meningen i program å kunne spise et eple ved hjelp av Use() funksjonen som gir +5hp hvis player ikke har full hp.
 
 
 klassen inventory skal ha variablene
@@ -18,7 +18,7 @@ klassen inventory skal ha variablene
   public List<Item> items = new List<Item>();
 
 den skal ha metodene 
-	public bool Add(Item item); 
+	public bool Add(Item item);  denne skal kun legge til Items hvis det fortsatt er plass(space) til Items i inventoryet
         public void Remove (Item item);
 
 
@@ -27,4 +27,5 @@ den skal ha metodene
 lag en funksjon som viser frem inventory og equipment
 
 
-ting som må gjøres, legge til klassene itemPickup og levelingsystem
+Bruk koden i LevelingSystem til å levle spilleren og gjør om på koden slik at man trenger mer xp for å levle til neste level
+
