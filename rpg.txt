@@ -1,0 +1,30 @@
+Lag klassen StatModifier som har metodene 
+
+GetStatValue() , Addmodifier(int modifier), RemoveModifier(int modifier)
+
+
+lag klassen Consumeable som arver fra klassen Item som har metoden
+
+ boost(StatModifier booststat, int howMuch)
+
+det er da meningen i program å kunne spise et eple som gir +5hp hvis player ikke har full hp.
+
+
+klassen inventory skal ha variablene
+  public static Inventory inventory
+  public delegate void OnItemChange();
+  public OnItemChange onItemChangeCallback;
+  public int space = 20; //kan edres etter ønsket størrelse på inventory 
+  public List<Item> items = new List<Item>();
+
+den skal ha metodene 
+	public bool Add(Item item); 
+        public void Remove (Item item);
+
+
+
+
+lag en funksjon som viser frem inventory og equipment
+
+
+ting som må gjøres, legge til klassene itemPickup og levelingsystem
