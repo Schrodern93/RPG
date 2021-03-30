@@ -1,6 +1,8 @@
-Lag klassen StatModifier som har metodene 
 
-GetStatValue() , Addmodifier(int modifier), RemoveModifier(int modifier)
+Lag klassen StatModifier som har metodene 
+			GetStatValue() 
+			Addmodifier(int modifier)
+			RemoveModifier(int modifier)
 
 
 lag klassen Consumeable som arver fra klassen Item som har metoden
@@ -10,7 +12,7 @@ lag klassen Consumeable som arver fra klassen Item som har metoden
 det er da meningen i program å kunne spise et eple ved hjelp av Use() funksjonen som gir +5hp hvis player ikke har full hp.
 
 
-klassen inventory skal ha variablene
+Klassen inventory skal ha variablene
   public static Inventory inventory
   public delegate void OnItemChange();
   public OnItemChange onItemChangeCallback;
@@ -18,14 +20,14 @@ klassen inventory skal ha variablene
   public List<Item> items = new List<Item>();
 
 den skal ha metodene 
-	public bool Add(Item item);  denne skal kun legge til Items hvis det fortsatt er plass(space) til Items i inventoryet
-        public void Remove (Item item);
+	 Add(Item item);  denne skal kun legge til Items hvis det fortsatt er plass(space) til Items i inventory'et
+     Remove (Item item);
 
 
+lag funksjoner som viser frem inventory og equipment.
 
 
-lag en funksjon som viser frem inventory og equipment
+Lag klassen CommandList som har metoden CheckForCommand(string command), metoden ligger i EquipmentManager
 
-
-Bruk koden i LevelingSystem til å levle spilleren og gjør om på koden slik at man trenger mer xp for å levle til neste level
+Bruk koden i LevelingSystem til å levle spilleren og gjør om på koden slik at man trenger mer xp for å levle til neste level.
 

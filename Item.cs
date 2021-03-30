@@ -22,7 +22,7 @@ namespace RPG
 
         public void removeFromInventory()
         {
-            Inventory.inventory.Remove(this);
+            //Inventory.inventory.Remove(this);
 
         }
 

@@ -4,22 +4,29 @@ using System.Text;
 
 namespace RPG
 {
-    public class EquipmentManager
+    public class EquipmentManager : IOnEquipmentchange
     {
-       
-        public static EquipmentManager instance;
+        // kanskje en private construktor som new'er eqmanager 
+        //public static EquipmentManager instance;
+        public EquipmentManager instance;
+        //public EquipmentManager equipmentManager;
+        //private EquipmentManager()
+        //{
+        //    equipmentManager = new EquipmentManager();
+        //}
 
         Equipment[] currentEquipment;
-        public delegate void OnEquipmentChanged(Equipment newItem, Equipment oldItem);
+        //public delegate void OnEquipmentChanged(Equipment newItem, Equipment oldItem);
         // lage interface istedenfor et delegate 
-        public OnEquipmentChanged onEquipmentChanged;
+        //public OnEquipmentChanged onEquipmentChanged;
+      
 
         Inventory inventory;
 
         public EquipmentManager()
         {
-            inventory = Inventory.inventory;
-
+            inventory = Inventory.instance;
+            instance = new EquipmentManager();
             int numSlots = Enum.GetNames(typeof(EquipmentSlot)).Length;
             currentEquipment = new Equipment[numSlots];
 
@@ -35,13 +42,14 @@ namespace RPG
                 oldItem = currentEquipment[slotIndex];
                 inventory.Add(oldItem);
             }
-            if (onEquipmentChanged != null)
+            //if (onEquipmentChanged != null)
+            if (newItem != null && oldItem != null)
             {
-                onEquipmentChanged.Invoke(newItem, oldItem);
+                //onEquipmentChanged.Invoke(newItem, oldItem);
+                OnEquipmentchange(newItem, oldItem);
             }
             currentEquipment[slotIndex] = newItem;
         }
-
        
         public void Unequip(int slotIndex)
         {
@@ -52,9 +60,11 @@ namespace RPG
 
                 currentEquipment[slotIndex] = null;
 
-                if (onEquipmentChanged != null)
+                //if (onEquipmentChanged != null)
+                if (oldItem != null)
                 {
-                    onEquipmentChanged.Invoke(null, oldItem);
+                    //onEquipmentChanged.Invoke(null, oldItem);
+                    OnEquipmentchange(null, oldItem);
                 }
             }
         }
@@ -75,6 +85,22 @@ namespace RPG
                 UnequipAll();
                 return "Unequipping all!";
             }
+            return null;
+        }
+
+        public Equipment OnEquipmentchange(Equipment newEquipment, Equipment oldEquipment)
+        {
+            if (newEquipment == null && oldEquipment != null)
+            {
+                oldEquipment = null;
+                return oldEquipment;
+            }
+
+            if (newEquipment != null && oldEquipment != null)
+            {
+                return newEquipment;
+            }
+
             return null;
         }
     }
