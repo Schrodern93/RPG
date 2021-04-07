@@ -4,10 +4,8 @@ using System.Text;
 
 namespace RPG
 {
-    interface IOnEquipmentchange
+    public interface IOnEquipmentChange
     {
-
-        public Equipment OnEquipmentchange(Equipment newEquipment, Equipment oldEquipment);
-
+        void OnEquipmentChange(Equipment newEquipment, Equipment oldEquipment);
     }
 }

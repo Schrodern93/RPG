@@ -4,13 +4,13 @@ using System.Text;
 
 namespace RPG
 {
-    class itemPickUp
+    class ItemPickUp
     {
         public Item item;
         
         void PickUp()
         {
-            Console.WriteLine("Picking up " + item.name);
+            Console.WriteLine("Picking up " + item.Name);
             // add to inventory
             bool wasPickedUp = Inventory.instance.Add(item);
      

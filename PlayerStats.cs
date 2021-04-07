@@ -4,31 +4,31 @@ using System.Text;
 
 namespace RPG
 {
-     public class PlayerStats
+    public class PlayerStats : IOnEquipmentChange
     {
         public Player player;
 
         public PlayerStats()
         {
-            EquipmentManager.instance.onEquipmentChanged += OnEquipmentChanged;
+            EquipmentManager.Instance.SubscribeChanges(this);
         }
-        void OnEquipmentChanged(Equipment newItem, Equipment oldItem)
+        public void OnEquipmentChange(Equipment newEquipment, Equipment oldEquipment)
         {
-            if (newItem != null)
+            if (newEquipment != null)
             {
-                armor.AddModifier(newItem.armorModifier);
-                //mangler noe her
+                player.armor.AddModifier(newEquipment.ArmorModifier);
+                //Mangler noe her!
             }
 
-            if (oldItem != null)
+            if (oldEquipment != null)
             {
-                armor.RemoveModifier(oldItem.armorModifier);
-                damage.RemoveModifier(oldItem.damageModifier);
-                runspeed.RemoveModifier(oldItem.runSpeedModifier);
-                healt.RemoveModifier(oldItem.healthModifier);
-                agility.RemoveModifier(oldItem.agility);
-                strength.RemoveModifier(oldItem.strength);
-                intelligence.RemoveModifier(oldItem.intelligence);
+                player.armor.RemoveModifier(oldEquipment.ArmorModifier);
+                player.damage.RemoveModifier(oldEquipment.DamageModifier);
+                player.runspeed.RemoveModifier(oldEquipment.RunSpeedModifier);
+                player.healt.RemoveModifier(oldEquipment.HealthModifier);
+                player.agility.RemoveModifier(oldEquipment.Agility);
+                player.strength.RemoveModifier(oldEquipment.Strength);
+                player.intelligence.RemoveModifier(oldEquipment.Intelligence);
             }
         }
     }

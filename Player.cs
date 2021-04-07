@@ -29,7 +29,7 @@ namespace RPG
 
             damageTaken -= armor.GetValue();
 
-            //dennne gjør at player ikke blir healet av å ta skade
+            //denne gjør at player ikke blir healet av å ta skade
             damageTaken = Math.Clamp(damageTaken, 0, int.MaxValue);
 
             CurrentHealth -= damageTaken;
