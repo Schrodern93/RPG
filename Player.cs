@@ -8,6 +8,7 @@ namespace RPG
     {
         public string PlayerName;
         public int CurrentHealth { get; private set; }
+        public LevelingSystem levelingSystem;
 
         public StatModifier armor;
         public StatModifier damage;
@@ -21,6 +22,7 @@ namespace RPG
         {
             PlayerName = playerName;
             CurrentHealth = playerHealth;
+            levelingSystem = new LevelingSystem();
         }
 
 

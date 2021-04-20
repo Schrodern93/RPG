@@ -4,7 +4,7 @@ using System.Text;
 
 namespace RPG
 {
-    class LevelingSystem
+    public class LevelingSystem
     {
         public int level;
         public int currentExperience;

@@ -6,13 +6,14 @@ namespace RPG
 {
     public class EquipmentManager
     {
+
         public static EquipmentManager Instance => _instance ??= new EquipmentManager();
         private static EquipmentManager _instance = null;
         private List<IOnEquipmentChange> _subscribers;
         Equipment[] currentEquipment;
         Inventory inventory;
 
-        private EquipmentManager()
+        internal EquipmentManager()
         {
             int numSlots = Enum.GetNames(typeof(EquipmentSlot)).Length;
             currentEquipment = new Equipment[numSlots];
