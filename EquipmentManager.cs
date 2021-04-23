@@ -7,11 +7,11 @@ namespace RPG
     public class EquipmentManager
     {
 
-        public static EquipmentManager Instance => _instance ??= new EquipmentManager();
-        private static EquipmentManager _instance = null;
+        //public static EquipmentManager Instance => _instance ??= new EquipmentManager();
+        //private static EquipmentManager _instance = null;
         private List<IOnEquipmentChange> _subscribers;
         Equipment[] currentEquipment;
-        Inventory inventory;
+        //Inventory inventory;
 
         internal EquipmentManager()
         {
@@ -33,10 +33,10 @@ namespace RPG
             if (currentEquipment[slotIndex] != null)
             {
                 oldItem = currentEquipment[slotIndex];
-                inventory.Add(oldItem);
+                //inventory.Add(oldItem);
             }
            
-            if (newItem != null && oldItem != null)
+            if (newItem != null) // && oldItem != null
             {
                 NotifySubscribers(newItem, oldItem);
             }
@@ -56,7 +56,7 @@ namespace RPG
             if (currentEquipment[slotIndex] != null)
             {
                 Equipment oldItem = currentEquipment[slotIndex];
-                inventory.Add(oldItem);
+                //inventory.Add(oldItem);
                 currentEquipment[slotIndex] = null;
 
                 if (oldItem != null)

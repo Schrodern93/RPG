@@ -6,18 +6,23 @@ namespace RPG
 {
     class Game
     {
-        public EquipmentManager equipmentManager;
+        internal EquipmentManager EquipmentManager { get; private set; }
         public Player player;
-
-        public Game(Player player)
+         
+        public Game()
         {
-            equipmentManager = new EquipmentManager();
-            this.player = player;
+            EquipmentManager = new EquipmentManager();
+            player = new Player(this, "Joakim", 100);
         }
 
         public bool IsRunning()
         {
             return true;
+        }
+
+        public void AddExperience(int gainedXP)
+        {
+            player.levelingSystem.AddExperience(gainedXP);
         }
     }
 }

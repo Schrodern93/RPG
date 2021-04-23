@@ -7,6 +7,7 @@ namespace RPG
     public class Equipment : Item
     {
         public EquipmentSlot equipmentSlot;
+        internal Game game;
        
         public int ArmorModifier;
         public int DamageModifier;
@@ -32,8 +33,8 @@ namespace RPG
         {
             base.Use();
 
-            EquipmentManager.Instance.Equip(this);
-            
+            //EquipmentManager.Instance.Equip(this);
+            game.EquipmentManager.Equip(this);
             removeFromInventory();
         }
       

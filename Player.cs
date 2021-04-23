@@ -7,19 +7,22 @@ namespace RPG
     public class Player
     {
         public string PlayerName;
-        public int CurrentHealth { get; private set; }
+        internal Game _game;
+        public int CurrentHealth; 
         public LevelingSystem levelingSystem;
 
-        public StatModifier armor;
-        public StatModifier damage;
-        public StatModifier runspeed;
-        public StatModifier healt;
-        public StatModifier agility;
-        public StatModifier strength;
-        public StatModifier intelligence;
+        //public StatModifier armor;
+        //public StatModifier damage;
+        //public StatModifier runspeed;
+        //public StatModifier healt;
+        //public StatModifier agility;
+        //public StatModifier strength;
+        //public StatModifier intelligence;
 
-        public Player(string playerName, int playerHealth)
+       
+        internal Player(Game game, string playerName, int playerHealth)
         {
+            _game = game;
             PlayerName = playerName;
             CurrentHealth = playerHealth;
             levelingSystem = new LevelingSystem();
@@ -29,7 +32,7 @@ namespace RPG
         public void TakeDamage(int damageTaken)
         {
 
-            damageTaken -= armor.GetValue();
+            //damageTaken -= armor.GetValue();
 
             //denne gjør at player ikke blir healet av å ta skade
             damageTaken = Math.Clamp(damageTaken, 0, int.MaxValue);

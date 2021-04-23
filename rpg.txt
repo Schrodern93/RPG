@@ -1,35 +1,47 @@
 
 
 
-Lag klassen StatModifier som har metodene 
-			GetStatValue() 
-			Addmodifier(int modifier)
-			RemoveModifier(int modifier)
+Velkommen til tidenes RPG spill ! 
+Det er bare ett problem, spillet mangler flere klasser og metoder, og det blir opp til deg som kode-hero å lage disse. Tar du oppgaven ooh store kode-hero? 
+Du vil møte farer som å lage gode klasser, arv og interface. 
 
+Din første oppgave på veien mot et fungerende rpg spill er å lage klassen Inventory, slik at du kan bære med deg alle gjenstander på ferden din videre.
 
-lag klassen Consumeable som arver fra klassen Item som har metoden
+Lag klassen Inventory , 
+             Den skal ha variablene
 
- Boost(StatModifier booststat, int howMuch)
-
-det er da meningen i program å kunne spise et eple ved hjelp av Use() funksjonen som gir +5hp hvis player ikke har full hp.
-
-
-Klassen inventory skal ha variablene
-
-  public static Inventory instance
-  public int space = 20; //kan edres etter ønsket størrelse på inventory 
-  public List<Item> items = new List<Item>();
+ 	 public static Inventory instance
+  	 public int space = 20; //kan edres etter ønsket størrelse på inventory 
+ 	 public List<Item> items = new List<Item>();
     
 Den skal ha metodene 
-	 Add(Item item);  denne skal kun legge til Items hvis det fortsatt er plass(space) til Items i inventory'et
-     Remove (Item item);
+ 	 Add(Item item);  denne skal kun legge til Items hvis det fortsatt er plass(space).
+ 	 Remove (Item item);
 
-Lag klassen CommandList som har metoden CheckForCommand(string command), metoden ligger i EquipmentManager	
+Uten mat og drikke duger helten ikke, din neste oppgave blir derfor å lage klassen Consumable
 
+Klassen Consumeable som arver fra klassen Item 
+Skal ha metoden:
+Boost(StatModifier booststat, int howMuch)
 
-Lag funksjoner som viser frem inventory og equipment.
+Det er da meningen i program å kunne spise et eple ved hjelp av Use() metoden, som gir +5hp hvis player ikke har full hp.
 
-Gjør endringer i PlayerStats der det mangler noe.
+Hva er et spill uten at du kan levle og bli sterkere? Gjør endringer i LevelingSystem slik at det krever mer xp å levle for hvert level. 
 
 Bruk koden i LevelingSystem til å levle spilleren og gjør om på koden slik at man trenger mer xp for å levle til neste level.
 
+Stats makes us harder, better, faster, stronger. Men vi trenger å kunne legge til disse også
+
+Lag klassen StatModifier som har metodene 
+ GetStatValue() 
+ Addmodifier(int modifier)
+ RemoveModifier(int modifier)
+
+Vår tidligere kode-hero har glemt noe, klarer du å finne ut hva som mangler? 
+Gjør endringer i PlayerStats der det mangler noe.
+
+Kommandør vi trenger deg, uten en kommando blir det gjort lite, og vår hero vil fryse i bit’s. 
+
+Lag klassen CommandList som har metoden
+   CheckForCommand(string command), ps. metoden ligger i EquipmentManager	
+Lag funksjoner som viser frem inventory, equipment og alt om spilleren du måtte ønske, hvordan du viser frem er opp til deg.

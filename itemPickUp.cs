@@ -12,7 +12,7 @@ namespace RPG
         {
             Console.WriteLine("Picking up " + item.Name);
             // add to inventory
-            bool wasPickedUp = Inventory.instance.Add(item);
+            //bool wasPickedUp = Inventory.instance.Add(item);
      
         }
 
