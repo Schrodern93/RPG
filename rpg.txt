@@ -1,6 +1,3 @@
-
-
-
 Velkommen til tidenes RPG spill ! 
 Det er bare ett problem, spillet mangler flere klasser og metoder, og det blir opp til deg som kode-hero å lage disse. Tar du oppgaven ooh store kode-hero? 
 Du vil møte farer som å lage gode klasser, arv og interface. 
@@ -10,7 +7,6 @@ Din første oppgave på veien mot et fungerende rpg spill er å lage klassen Inv
 Lag klassen Inventory , 
              Den skal ha variablene
 
- 	 public static Inventory instance
   	 public int space = 20; //kan edres etter ønsket størrelse på inventory 
  	 public List<Item> items = new List<Item>();
     
@@ -31,7 +27,6 @@ Hva er et spill uten at du kan levle og bli sterkere? Gjør endringer i Leveling
 Bruk koden i LevelingSystem til å levle spilleren og gjør om på koden slik at man trenger mer xp for å levle til neste level.
 
 Stats makes us harder, better, faster, stronger. Men vi trenger å kunne legge til disse også
-
 Lag klassen StatModifier som har metodene 
  GetStatValue() 
  Addmodifier(int modifier)
@@ -39,9 +34,39 @@ Lag klassen StatModifier som har metodene
 
 Vår tidligere kode-hero har glemt noe, klarer du å finne ut hva som mangler? 
 Gjør endringer i PlayerStats der det mangler noe.
-
 Kommandør vi trenger deg, uten en kommando blir det gjort lite, og vår hero vil fryse i bit’s. 
 
 Lag klassen CommandList som har metoden
    CheckForCommand(string command), ps. metoden ligger i EquipmentManager	
 Lag funksjoner som viser frem inventory, equipment og alt om spilleren du måtte ønske, hvordan du viser frem er opp til deg.
+
+Nå er spilleren nesten klar for nye eventyr, send han ut på ett oppdrag etter at du har gitt spilleren utstyret under.   
+
+Pinne  - var Stick = new Equipment( “Stick” ,MainHand, 0,2,0,0,0,0,0);
+Bøtte  - var Bucket = new Equipment ( “Bucket”, Head,  1,0,0,0,0,0,0);
+Rundt Søppel Kasselokk - var RoundDumpsterLid = new Equipment(“RoundDumpsterLid”, OffHand, 2,0,0,0,0,0,0);
+Lag også et eple som gir +5 hp; 
+
+Første oppdrag (kan dette være en klasse?)
+
+Reward: 
+boots of speed , gir +3 i runspeed, og 2 agility.
+old broken sword  , gir +4 i damage og 2 strength.
+	  
+
+Fienden (ny klasse ?)  
+Navn/ting: Sterk type;
+Fienden skal ha  20 hp , og 1 i attack-damage. 
+
+
+Kampen er turnbased og fienden angriper først
+Lag kampforløpet og se hvem som vinner 
+(ps. hvordan bruke eplet?)
+
+player.TakeDamage(enemy.damage);
+enemy.TakeDamage(player.damage);
+player.TakeDamage(enemy.damage);
+enemy.TakeDamage(player.damage);
+...osv.
+
+

@@ -7,7 +7,7 @@ namespace RPG
         static void Main(string[] args)
         {
 
-            var Player1 = new Player("rudolf",100);   
+            var Player1 = new Player("new player",10);  // du kan endre navn men la hp stå.  
         }
     }
 }
