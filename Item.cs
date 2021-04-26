@@ -17,13 +17,11 @@ namespace RPG
         {
            // no skjer i denne metoden, det varierer fra klassene som arver
             Console.WriteLine("Using " + Name);
-           
         }
 
         public void removeFromInventory()
         {
-            //Inventory.inventory.Remove(this);
-
+            Inventory.inventory.Remove(this);
         }
 
     }

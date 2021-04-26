@@ -6,33 +6,39 @@ namespace RPG
 {
     public class Player
     {
-        public string PlayerName;
-        internal Game _game;
-        public int CurrentHealth; 
+        public string PlayerName { get; private set; }
+        public int CurrentHealth { get; private set; }
+        internal EquipmentManager EquipmentManager { get; private set; }
         public LevelingSystem levelingSystem;
+        public Inventory inventory;
+        public PlayerStats playerStats;
+  
 
-        //public StatModifier armor;
-        //public StatModifier damage;
-        //public StatModifier runspeed;
-        //public StatModifier healt;
-        //public StatModifier agility;
-        //public StatModifier strength;
-        //public StatModifier intelligence;
 
-       
-        internal Player(Game game, string playerName, int playerHealth)
+        public StatModifier armor { get; }
+        public StatModifier damage { get; }
+        public StatModifier runspeed { get; }
+        public StatModifier healt { get; }
+        public StatModifier agility { get; }
+        public StatModifier strength { get; }
+        public StatModifier intelligence { get; }
+
+
+        internal Player(string playerName, int playerHealth)
         {
-            _game = game;
             PlayerName = playerName;
             CurrentHealth = playerHealth;
+            EquipmentManager = new EquipmentManager();
             levelingSystem = new LevelingSystem();
+            inventory = new Inventory();
+            playerStats = new PlayerStats();
         }
 
 
         public void TakeDamage(int damageTaken)
         {
 
-            //damageTaken -= armor.GetValue();
+            damageTaken -= armor.GetValue();
 
             //denne gjør at player ikke blir healet av å ta skade
             damageTaken = Math.Clamp(damageTaken, 0, int.MaxValue);
@@ -50,6 +56,11 @@ namespace RPG
         private void Die()
         {
            Console.WriteLine(" player Died!!! ");
+        }
+
+        public void AddExperience(int gainedXP)
+        {
+           levelingSystem.AddExperience(gainedXP);
         }
     }
 }

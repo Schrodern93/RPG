@@ -6,23 +6,21 @@ namespace RPG
 {
     class Game
     {
-        internal EquipmentManager EquipmentManager { get; private set; }
-        public Player player;
+        // ikke i bruk !!!!!!
+        //internal EquipmentManager EquipmentManager { get; private set; }
+        //public Player Player;
+        
          
-        public Game()
-        {
-            EquipmentManager = new EquipmentManager();
-            player = new Player(this, "Joakim", 100);
-        }
+        //public Game(Player player)
+        //{
+        //    EquipmentManager = new EquipmentManager();
+        //    Player = player;
+        //}
 
-        public bool IsRunning()
-        {
-            return true;
-        }
+        //public bool IsRunning()
+        //{
+        //    return true;
+        //}
 
-        public void AddExperience(int gainedXP)
-        {
-            player.levelingSystem.AddExperience(gainedXP);
-        }
     }
 }

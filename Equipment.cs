@@ -6,8 +6,8 @@ namespace RPG
 {
     public class Equipment : Item
     {
-        public EquipmentSlot equipmentSlot;
-        internal Game game;
+        public EquipmentSlot EquipmentSlot;
+        internal Player player;
        
         public int ArmorModifier;
         public int DamageModifier;
@@ -19,7 +19,7 @@ namespace RPG
 
         public Equipment(string name, EquipmentSlot equipmentSlot, int armorModifier, int damageModifier, int healthModifier, int runSpeedModifier, int agility, int strength, int intelligence) : base(name)
         {
-            this.equipmentSlot = equipmentSlot;
+            EquipmentSlot = equipmentSlot;
             ArmorModifier = armorModifier;
             DamageModifier = damageModifier;
             HealthModifier = healthModifier;
@@ -33,8 +33,7 @@ namespace RPG
         {
             base.Use();
 
-            //EquipmentManager.Instance.Equip(this);
-            game.EquipmentManager.Equip(this);
+            player.EquipmentManager.Equip(this);
             removeFromInventory();
         }
       
