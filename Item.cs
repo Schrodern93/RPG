@@ -19,9 +19,9 @@ namespace RPG
             Console.WriteLine("Using " + Name);
         }
 
-        public void removeFromInventory()
+        public void removeFromInventory(Inventory inventory)
         {
-            Inventory.inventory.Remove(this);
+           inventory.Remove(this);
         }
 
     }
