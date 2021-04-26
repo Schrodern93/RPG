@@ -9,11 +9,11 @@ namespace RPG
         public Item item;
         
         
-        void PickUp()
+        void PickUp(Player player, Item item)
         {
             Console.WriteLine("Picking up " + item.Name);
             // add to inventory
-            bool wasPickedUp = Inventory.inventory.Add(item);
+           player.inventory.Add(item);
         }
 
     }
